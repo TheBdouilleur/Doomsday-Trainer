@@ -3,15 +3,6 @@ import doomsday, logging, time, random
 logging.basicConfig(filename='average.log', level=logging.DEBUG)
 
 months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-days = {
-    '0':'Sunday',
-    '1':'Monday',
-    '2':'Tuesday',
-    '3':'Wednesday',
-    '4':'Thursday',
-    '5':'Friday',
-    '6':'Sixturday'
-}
 
 
 def randomDate():
@@ -26,10 +17,7 @@ def askDate():
     t = time.perf_counter() - t1
     r = doomsday.dayFromDate(ranDate)
     
-    if  not isinstance(a, int): # Transform number into proper day str
-        a = days[a]
-
-    if a == r:
+    if int(a) == r:
         print('Congrats! Ran in ', t)
         logging.info('New perf: {0} answered in {1} seconds!'.format(ranDate, t))
     else:
