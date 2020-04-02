@@ -1,3 +1,4 @@
+[![Run on Repl.it](https://repl.it/badge/github/TheBdouilleur/Doomsday-Trainer)](https://repl.it/github/TheBdouilleur/Doomsday-Trainer)
 # Doomsday-Trainer
 Train your mental abilities and impress your friend by learning to use the [Doomsday Algorithm](https://en.wikipedia.org/wiki/Doomsday_rule)!
 This simple and fast set of rules will let you calculate the day on which any date fell!  Currently with CLI, but a GUI is in early stage.
