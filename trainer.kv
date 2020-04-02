@@ -1,0 +1,61 @@
+WindowManager:
+    ConfirmWindow:
+    DateWindow:
+
+<ConfirmWindow>:
+    name: "first"
+
+    GridLayout:
+        rows:2
+        Label:
+            text: "Day from date trainer.\nAre you sure you want to play?"
+            font_size: 25
+
+        GridLayout:
+            cols: 2
+
+            Button:
+                text:"Quit app"
+                font_size: 30
+                on_release: quit()
+            Button:
+                text:"Confirm"
+                font_size: 30
+                on_release: 
+                    print("confirm")
+                    app.root.current = "second"
+                    root.manager.transition.direction = "left"
+                
+
+
+<DateWindow>:
+    name: "second"
+    GridLayout:
+        id: datelayout
+        on_event: print('entered date')
+        rows:2
+
+        Label:
+            text: "What day was {} on?".format(app.date)
+            font_size: 30
+            on_parent: print('loaded')
+        GridLayout:
+            cols: 2
+
+            TextInput:
+                id: answer
+                multiline: False
+                font_size: 30
+
+            Button:
+                text:"release"
+                font_size: 30
+                on_release:
+                    print("loaded", answer.text)
+                    app.resize()
+            Button:
+                text:"OK"
+                font_size: 30
+                on_release:
+                    print("answersent", answer.text)
+                    quit()
