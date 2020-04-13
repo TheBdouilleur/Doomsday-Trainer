@@ -1,17 +1,15 @@
 # TODO. Quit method of ConfirmWindow
-import kivy
-from kivy.app import App
-from kivy.uix.label import Label
-from kivy.uix.gridlayout import GridLayout
-from kivy.uix.textinput import TextInput
-from kivy.uix.widget import Widget
-from kivy.properties import ObjectProperty, StringProperty
-from kivy.lang import Builder
-from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.uix.floatlayout import FloatLayout
-from kivy.config import Config
+import os
+os.environ['KIVY_GL_BACKEND'] = 'sdl2' # Change the backend to avoid a Linux error 
 from kivy.core.window import Window
 
+import kivy
+from kivy.app import App
+from kivy.lang import Builder
+from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.config import Config
+from kivy.core.window import Window
+from kivy.properties import ObjectProperty, StringProperty
 
 class ConfirmWindow(Screen):
     pass
