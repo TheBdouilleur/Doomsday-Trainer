@@ -32,7 +32,7 @@ WindowManager:
     name: "second"
     GridLayout:
         id: datelayout
-        on_event: print('entered date')
+        
         rows:2
 
         Label:
@@ -47,12 +47,7 @@ WindowManager:
                 multiline: False
                 font_size: 30
 
-            Button:
-                text:"release"
-                font_size: 30
-                on_release:
-                    print("loaded", answer.text)
-                    app.resize()
+            
             Button:
                 text:"OK"
                 font_size: 30
