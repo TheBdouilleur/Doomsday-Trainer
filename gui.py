@@ -1,16 +1,19 @@
-# TODO. Quit method of ConfirmWindow
+# TODO. Quit method of StartWindow
 import os
 os.environ['KIVY_GL_BACKEND'] = 'sdl2' # Change the backend to avoid a Linux error 
-from kivy.core.window import Window
 
-import kivy
+import doomsday # Common Conway date operations
+
+import kivy  # Kivy different modules
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.config import Config
-from kivy.properties import ObjectProperty, StringProperty
+from kivy.core.window import Window
+from kivy.properties import ObjectProperty, StringProperty, DictProperty
 
-class ConfirmWindow(Screen):
+
+class StartWindow(Screen):
     pass
 
 
@@ -18,8 +21,13 @@ class DateWindow(Screen):
     pass
 
 
+class ResultWindow(Screen):
+    pass
+
+
 class WindowManager(ScreenManager):
     pass
+
 
 
 date = "Hello"
@@ -33,18 +41,22 @@ Config.write()
 
 
 class Trainer(App):
-    date = StringProperty("")
-
-    def resize(self):
-        Window.size = (WIDTH+1, HEIGHT)
+    random_date = StringProperty("")
+    answer = StringProperty("")
+    results = DictProperty("")
+    results = {'text': 'no results yet'}
+    #def resize(self):
+        #Window.size = (WIDTH+1, HEIGHT)
 
     def build(self):
-        self.date = "coucou"
+        self.random_date = doomsday.randomDate()
+
         return Builder.load_file("trainer.kv")
 
-
-def quit():
-    print('quit')
+    def get_answer(self):
+        print("answerfromtrainer:", self.answer)
+        self.results['text'] = 'hi'+ self.answer
+        print(self.results)
 
 
 if __name__ == "__main__":

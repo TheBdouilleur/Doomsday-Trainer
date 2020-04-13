@@ -1,8 +1,10 @@
 WindowManager:
-    ConfirmWindow:
+    StartWindow:
     DateWindow:
+    ResultWindow:
 
-<ConfirmWindow>:
+
+<StartWindow>:
     name: "first"
 
     GridLayout:
@@ -21,7 +23,7 @@ WindowManager:
             Button:
                 text:"Confirm"
                 font_size: 30
-                on_release: 
+                on_release:
                     print("confirm")
                     app.root.current = "second"
                     root.manager.transition.direction = "left"
@@ -30,15 +32,15 @@ WindowManager:
 
 <DateWindow>:
     name: "second"
+
     GridLayout:
-        id: datelayout
-        
-        rows:2
+        rows: 2
 
         Label:
-            text: "What day was {} on?".format(app.date)
+            text: "What day was {} on?".format(app.random_date)
             font_size: 30
             on_parent: print('loaded')
+
         GridLayout:
             cols: 2
 
@@ -46,11 +48,30 @@ WindowManager:
                 id: answer
                 multiline: False
                 font_size: 30
-
+                on_text_validate:
+                    app.answer = answer.text
+                    app.get_answer()
+                    app.root.current = "third"
+                    root.manager.transition.direction = "left"
             
             Button:
                 text:"OK"
                 font_size: 30
                 on_release:
-                    print("answersent", answer.text)
-                    quit()
+                    app.answer = answer.text
+                    app.get_answer()
+                    app.root.current = "third"
+                    root.manager.transition.direction = "left"
+
+
+<ResultWindow>:
+    name: "third"
+    GridLayout:
+        rows: 2
+
+        Label:
+            text: app.results['text']
+
+            canvas.before:
+                Color:
+                    rgba: 0, 128, 0, 1
