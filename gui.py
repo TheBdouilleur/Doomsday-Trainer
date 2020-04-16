@@ -22,7 +22,9 @@ class DateWindow(Screen):
 
 
 class ResultWindow(Screen):
-    pass
+    def init():
+        pass
+
 
 
 class WindowManager(ScreenManager):
@@ -43,8 +45,8 @@ Config.write()
 class Trainer(App):
     random_date = StringProperty("")
     answer = StringProperty("")
-    results = DictProperty("")
-    results = {'text': 'no results yet'}
+    results = StringProperty("") # DictProperty("")
+    results = 'no r yet' # {'text': 'no results yet'}
     #def resize(self):
         #Window.size = (WIDTH+1, HEIGHT)
 
@@ -55,8 +57,8 @@ class Trainer(App):
 
     def get_answer(self):
         print("answerfromtrainer:", self.answer)
-        self.results['text'] = 'hi'+ self.answer
-        print(self.results)
+        results = 'hi'+ self.answer # ['text']
+        print(results)
 
 
 if __name__ == "__main__":

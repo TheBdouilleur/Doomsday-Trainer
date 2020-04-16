@@ -66,12 +66,17 @@ WindowManager:
 
 <ResultWindow>:
     name: "third"
+    on_enter: root.layout.resultLabel.text = app.results
     GridLayout:
+        id: layout
         rows: 2
 
         Label:
-            text: app.results['text']
+            id: resultLabel
+            text: app.results
 
-            canvas.before:
-                Color:
-                    rgba: 0, 128, 0, 1
+        GridLayout:
+            cols: 2
+
+
+            
