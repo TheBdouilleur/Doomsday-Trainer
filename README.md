@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f36e6456421447c6814d787eceb127be)](https://app.codacy.com/manual/TheBdouilleur/Doomsday-Trainer?utm_source=github.com&utm_medium=referral&utm_content=TheBdouilleur/Doomsday-Trainer&utm_campaign=Badge_Grade_Dashboard)
 [![Run on Repl.it](https://repl.it/badge/github/TheBdouilleur/Doomsday-Trainer)](https://repl.it/github/TheBdouilleur/Doomsday-Trainer)
 # Doomsday-Trainer
 Train your mental abilities and impress your friend by learning to use the [Doomsday Algorithm](https://en.wikipedia.org/wiki/Doomsday_rule)!
