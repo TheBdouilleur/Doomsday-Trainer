@@ -14,3 +14,6 @@ Alternatively, you can download the binaries from this folder (currently only on
 
 ## Usage
 Theprogram will ask you a date at login and every hour; your answer time is measured and logged in `average.log`, and a data analyser is under development.  Good training!
+
+## Contact us
+https://je.yo.fr
