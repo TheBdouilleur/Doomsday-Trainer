@@ -1,4 +1,7 @@
-import doomsday # Common Conway date operations
+# TODO. resultLabel bg = green when correct, else red
+# TODO. proper 'Play again' method
+
+import doomsday, logging # Common Conway date operations
 
 import kivy  # Kivy different modules
 from kivy.app import App
@@ -32,25 +35,36 @@ Config.set('graphics', 'width', str(WIDTH))
 Config.set('graphics', 'height', str(HEIGHT))
 Config.write()
 
+logging.basicConfig(filename='average.log', level=logging.DEBUG)
 
 class Trainer(App):
     random_date = StringProperty("")
+    random_date = doomsday.randomDate()
+
+    results = DictProperty("")
+    results = {'text': '', 'correct':None}
+    
     answer = StringProperty("")
-    results = StringProperty("") # DictProperty("")
-    #results = 'no r yet' # {'text': 'no results yet'}
-    #def resize(self):
-        #Window.size = (WIDTH+1, HEIGHT)
+    
 
     def build(self):
-        self.random_date = doomsday.randomDate()
-
         return Builder.load_file("trainer.kv")
 
-    def get_answer(self): # TODO reformat function more pythonically (get_answer(self, answer)) 
-        self.results = self.answer # ['text']
+    def generate_results(self): # TODO reformat function more pythonically (results(self, answer))
+        day = str(doomsday.dayFromDate(self.random_date))
+    
+        if self.answer == day:
+            self.results['correct'] = True
+            self.results['text'] = 'Congrats!'
+            logging.info('New perf: {0} answered in s seconds!'.format(self.random_date))
+        
+        else:
+            self.results['correct'] = True
+            self.results['text'] = 'False: real answer was ' + day
+            logging.info(' {0} False {1} in s seconds: real answer: {2}'.format(self.random_date, self.results, day))
 
-    def reload_label(self):
-        self.root.get_screen('third').ids.resultLabel.text = self.results
+        self.root.get_screen('third').ids.resultLabel.text = self.results['text'] #Update resultLabel's text
+        print('Label text after: ', self.root.get_screen('third').ids.resultLabel.text)
 
 
 if __name__ == "__main__":

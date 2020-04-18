@@ -50,7 +50,6 @@ WindowManager:
                 font_size: 30
                 on_text_validate:
                     app.answer = answer.text
-                    app.get_answer()
                     app.root.current = "third"
                     root.manager.transition.direction = "left"
             
@@ -59,21 +58,22 @@ WindowManager:
                 font_size: 30
                 on_release:
                     app.answer = answer.text
-                    app.get_answer()
                     app.root.current = "third"
                     root.manager.transition.direction = "left"
 
 
 <ResultWindow>:
     name: "third"
-    on_enter: app.reload_label()
+    on_pre_enter: app.generate_results()
     GridLayout:
-        id: layout
         rows: 2
 
         Label:
+            font_size: 25
+           
             id: resultLabel
-            text: app.results
+            text: ""
+            markup: True
 
         GridLayout:
             cols: 2
