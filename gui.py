@@ -12,16 +12,11 @@ from kivy.properties import ObjectProperty, StringProperty, DictProperty
 class StartWindow(Screen):
     pass
 
-
 class DateWindow(Screen):
     pass
 
-
 class ResultWindow(Screen):
-    def init():
-        pass
-
-
+    pass
 
 class WindowManager(ScreenManager):
     pass
