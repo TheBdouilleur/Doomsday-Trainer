@@ -1,7 +1,3 @@
-# TODO. Quit method of StartWindow
-import os
-os.environ['KIVY_GL_BACKEND'] = 'sdl2' # Change the backend to avoid a Linux error 
-
 import doomsday # Common Conway date operations
 
 import kivy  # Kivy different modules
