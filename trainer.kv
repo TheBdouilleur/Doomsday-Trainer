@@ -66,7 +66,7 @@ WindowManager:
 
 <ResultWindow>:
     name: "third"
-    on_enter: root.layout.resultLabel.text = app.results
+    on_enter: app.reload_label()
     GridLayout:
         id: layout
         rows: 2
@@ -78,5 +78,19 @@ WindowManager:
         GridLayout:
             cols: 2
 
+            Button:
+                text: "Play again"
+                font_size: 30
+                on_release:
+                    app.root.current = "second"
+                    root.manager.transition.direction = "right"
+
+            Button:
+                text:"Quit"
+                font_size: 30
+                on_release:
+                    quit()
+
+            
 
             

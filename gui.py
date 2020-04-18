@@ -46,7 +46,7 @@ class Trainer(App):
     random_date = StringProperty("")
     answer = StringProperty("")
     results = StringProperty("") # DictProperty("")
-    results = 'no r yet' # {'text': 'no results yet'}
+    #results = 'no r yet' # {'text': 'no results yet'}
     #def resize(self):
         #Window.size = (WIDTH+1, HEIGHT)
 
@@ -55,10 +55,11 @@ class Trainer(App):
 
         return Builder.load_file("trainer.kv")
 
-    def get_answer(self):
-        print("answerfromtrainer:", self.answer)
-        results = 'hi'+ self.answer # ['text']
-        print(results)
+    def get_answer(self): # TODO reformat function more pythonically (get_answer(self, answer)) 
+        self.results = self.answer # ['text']
+
+    def reload_label(self):
+        self.root.get_screen('third').ids.resultLabel.text = self.results
 
 
 if __name__ == "__main__":
