@@ -1,3 +1,5 @@
+import logging, time, random
+
 ctDict = { # Data gathered by Conway
     '15':3, 
     '16':2,
@@ -23,6 +25,9 @@ mthDict = { # Data gathered by Conway
     'Nov':(7,),
     'Dec':(12,)
 }
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+
 
 
 def isLeapYear(year:int):
@@ -47,6 +52,25 @@ def dayFromDate(date:str):
     dyOfWeek = (dmDifference + ctDoomsday + dc//12 + dc%12 + (dc%12)//4)%7 # Implementation of Conway's equation
     return dyOfWeek
 
+def randomDate():
+    dateList = [str(random.randint(1,28)), str(random.choice(months)), str(random.randint(1582, 2300))] # (Start of Gregorian calendar, end of useful dates)
+    date = ' '.join(dateList)
+    return date
+
+def askDate():
+    ranDate = randomDate()
+    t1 = time.perf_counter()
+    a = input('What day was the {} ?'.format(ranDate))
+    t = time.perf_counter() - t1
+    r = dayFromDate(ranDate)
     
+    if int(a) == r:
+        print('Congrats! Ran in ', t)
+        logging.info('New perf: {0} answered in {1} seconds!'.format(ranDate, t))
+    else:
+        print('False: real answer was', r)
+        logging.info(' {0} False {1} in {2} seconds: real answer: {3}'.format(a, ranDate, t, r))
+
 if __name__ == "__main__":
     print(dayFromDate('13 Dec 1672'))
+    askDate()
