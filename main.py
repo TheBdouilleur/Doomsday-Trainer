@@ -1,3 +1,4 @@
+#! /usr/bin/python3
 # TODO. resultLabel bg = green when correct, else red
 # TODO. proper 'Play again' method
 
