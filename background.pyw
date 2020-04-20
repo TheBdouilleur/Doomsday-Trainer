@@ -1,4 +1,4 @@
 import time, os
 while True:
-    os.system("path//to//main.py")
+    os.system("python3 ~/Dropbox/Doomsday-Trainer/main.py")
     time.sleep(3600)
