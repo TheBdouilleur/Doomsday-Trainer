@@ -1,4 +1,4 @@
-#! /usr/bin/python3
+#!/usr/bin/python3
 import time, os
 while True:
     os.system("python3 ~/Dropbox/Doomsday-Trainer/main.py")
